@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "FE-System"
-  text: "This is FE-System Site"
-  tagline: My great project tagline
+  text: "打造全面的前端知识体系"
+  tagline: Build a comprehensive front-end knowledge system
   actions:
     - theme: brand
       text: Markdown Examples
