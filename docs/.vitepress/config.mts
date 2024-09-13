@@ -16,10 +16,7 @@ export default defineConfig({
       "/css/": [
         {
           text: "布局",
-          items: [
-            { text: "Flex", link: "/css/flex" },
-            { text: "Grid", link: "/css/grid" },
-          ],
+          items: [{ text: "Flex", link: "/css/flex" }],
         },
       ],
 

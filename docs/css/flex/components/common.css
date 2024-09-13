@@ -1,0 +1,112 @@
+.btns {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+
+  button {
+    background: #abb1f4;
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: #000000;
+  }
+}
+
+.container {
+  display: flex;
+  gap: 10px;
+  width: 240px;
+  height: 180px;
+  background: #aab1f9;
+  text-align: center;
+
+  div {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: #9898a5;
+  }
+
+  /* direction */
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &.column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  /* align */
+
+  &.start {
+    align-items: start;
+  }
+
+  &.end {
+    align-items: end;
+  }
+
+  &.center {
+    align-items: center;
+  }
+
+  &.normal {
+    align-items: normal;
+  }
+
+  &.stretch {
+    align-items: stretch;
+  }
+
+  /* justify */
+
+  &.start {
+    justify-content: start;
+  }
+
+  &.end {
+    justify-content: end;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.space-between {
+    justify-content: space-between;
+  }
+
+  &.space-around {
+    justify-content: space-around;
+  }
+
+  &.space-evenly {
+    justify-content: space-evenly;
+  }
+
+  /* wrap */
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &.wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+.active {
+  background: rgb(175, 3, 175) !important;
+}
