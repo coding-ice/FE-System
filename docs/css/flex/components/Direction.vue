@@ -27,7 +27,7 @@ const toggle = () => (dir.value = dir.value === 'row' ? 'column' : 'row');
     background: #abb1f4;
     padding: 3px 5px;
     border-radius: 5px;
-    color: white;
+    color: black;
   }
 
 }

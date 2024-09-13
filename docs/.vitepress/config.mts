@@ -13,7 +13,15 @@ export default defineConfig({
     ],
 
     sidebar: {
-      "/css/": [{ items: [{ text: "Flex", link: "/css/flex" }] }],
+      "/css/": [
+        {
+          text: "布局",
+          items: [
+            { text: "Flex", link: "/css/flex" },
+            { text: "Grid", link: "/css/grid" },
+          ],
+        },
+      ],
 
       "/js/": [
         { text: "ES6", items: [{ text: "Promise", link: "/js/es6/promise" }] },
@@ -23,5 +31,9 @@ export default defineConfig({
     socialLinks: [
       { icon: "github", link: "https://github.com/coding-ice/FE-System" },
     ],
+
+    outline: {
+      level: [2, 4],
+    },
   },
 });
