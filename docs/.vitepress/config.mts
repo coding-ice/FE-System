@@ -13,9 +13,7 @@ export default defineConfig({
     ],
 
     sidebar: {
-      "/css/": [
-        { text: "行内元素", items: [{ text: "Flex", link: "/css/flex" }] },
-      ],
+      "/css/": [{ items: [{ text: "Flex", link: "/css/flex" }] }],
 
       "/js/": [
         { text: "ES6", items: [{ text: "Promise", link: "/js/es6/promise" }] },
