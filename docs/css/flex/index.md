@@ -4,6 +4,7 @@
 import Direction from './components/Direction.vue'
 import Justify from './components/Justify.vue'
 import Align from './components/Align.vue'
+import Wrap from './components/Wrap.vue'
 </script>
 
 ## 前置知识
@@ -42,12 +43,10 @@ import Align from './components/Align.vue'
 
 <Align />
 
-### wrap
+### flexWrap
 
-<!-- **常用属性如下**
+当 item 的大小，超过了 container 大小，如何进行排布
 
-1. justify-content
-2. align-items
-3. wrap -->
+<Wrap />
 
 ## item attr
