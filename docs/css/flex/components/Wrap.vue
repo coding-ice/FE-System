@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.btns">
     <template v-for="val in wrapValues" key="val">
-      <button @click="wrap = val">{{ val }}</button>
+      <button :class="{ [$style.active]: wrap === val }" @click="wrap = val">{{ val }}</button>
     </template>
   </div>
   <div :class="[$style.container, $style[wrap]]">
@@ -17,51 +17,11 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { wrapValues } from './config.ts'
 
-const wrapValues = ['wrap', 'nowrap', 'wrap-reverse'];
 
 const wrap = ref(wrapValues[0]);
 </script>
 <style module>
-.btns {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-
-  button {
-    background: #abb1f4;
-    padding: 3px 5px;
-    border-radius: 5px;
-    color: #000000;
-  }
-}
-
-.container {
-  display: flex;
-  gap: 10px;
-  width: 240px;
-  height: 140px;
-  background: #aab1f9;
-  text-align: center;
-
-  div {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    background: #9898a5;
-  }
-
-  &.wrap {
-    flex-wrap: wrap;
-  }
-
-  &.nowrap {
-    flex-wrap: nowrap;
-  }
-
-  &.wrap-reverse {
-    flex-wrap: wrap-reverse;
-  }
-}
+@import url("./common.css");
 </style>

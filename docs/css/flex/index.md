@@ -22,12 +22,12 @@ import Wrap from './components/Wrap.vue'
 
 ![flex-axis](../images/axis.png)
 
-`flex-direction: row | column `  
+`flex-direction: row | row-reverse | column | column-reverse`  
 通过该属性设置主轴的方向，默认为 row，案例如下所示
 
 <Direction />
 
-## container attr
+## container 属性
 
 坐落于父元素的属性，用来控制子元素如何排布，我们来介绍几个常用的
 
@@ -49,4 +49,33 @@ import Wrap from './components/Wrap.vue'
 
 <Wrap />
 
-## item attr
+## item 属性
+
+### flex-grow （拉伸）
+
+如果 container 有剩余宽度，设置该值 > 0 可以拉伸至 container 宽度。如果存在多个，根据设置的大小，进行等比分配。（剩下的长度 / grow 份额 \* grow 份额）
+
+### flex-shrink （收缩）
+
+如果超出了 container 的大小，设置该值 > 0 可以收缩至 container 宽度。存在多个，同 grow。
+
+### flex-basis
+
+基础宽度大小，多种大小的优先级：max-width > flex-basis > width
+
+### order
+
+设置的数值越小，位置越前面
+
+### flex
+
+是 grow shrink basis 的语法糖
+
+- flex: 1
+  - flex-grow: 1
+  - flex-shrink: 1
+  - flex-basis: 0%
+- flex: auto
+  - flex-grow: 1
+  - flex-shrink: 1
+  - flex-basis: auto
