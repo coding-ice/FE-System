@@ -1,7 +1,10 @@
 @media screen and (min-width: 960px) {
-  .text {
-    font-size: 52px !important;
+  .container {
+    .text {
+      font-size: 52px !important;
+    }
   }
+
   .image-src {
     max-width: 360px !important;
   }
