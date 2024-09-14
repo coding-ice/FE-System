@@ -10,7 +10,7 @@
       <button :class="{ [$style.active]: val === justify }" @click="justify = val">{{ val }}</button>
     </template>
   </div>
-  <div :class="[$style.container, $style[justify], $style[direction]]">
+  <div :class="[$style.container, `${$style[`justify-${justify}`]}`, $style[direction]]">
     <div>1</div>
     <div>2</div>
     <div>3</div>

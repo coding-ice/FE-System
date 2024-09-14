@@ -39,13 +39,13 @@ import Wrap from './components/Wrap.vue'
 
 ### alignItems
 
-决定子元素在交叉轴，如何进行排布, 其重要注意的是，alignItems：normal（默认值）。其表现形式和 stretch 类似，在没有高度的情况下，默认为拉伸直父元素高度
+决定子元素在交叉轴，如何进行排布，其重要注意的是，alignItems：normal（默认值），其表现形式和 stretch 类似，在没有高度/宽度的情况下，默认为拉伸直父元素。
 
 <Align />
 
 ### flexWrap
 
-当 item 的大小，超过了 container 大小，如何进行排布
+属性指定 flex 元素单行显示还是多行显示，如果允许换行，这个属性允许你控制行的堆叠方向。
 
 <Wrap />
 
@@ -53,11 +53,13 @@ import Wrap from './components/Wrap.vue'
 
 ### flex-grow （拉伸）
 
-如果 container 有剩余宽度，设置该值 > 0 可以拉伸至 container 宽度。如果存在多个，根据设置的大小，进行等比分配。（剩下的长度 / grow 份额 \* grow 份额）
+- 如果 container 有剩余位置，设置该值 = 1，可以拉升至容器大小
+- 如果存在多个，根据设置的大小，进行等比分配。（剩下的大小 / 总 grow 份额 \* grow 份额），若 flex-grow 为小数，则总份额为 1
 
 ### flex-shrink （收缩）
 
-如果超出了 container 的大小，设置该值 > 0 可以收缩至 container 宽度。存在多个，同 grow。
+- 如果超出了 container 的大小，设置该值 = 1，可以收缩至至容器大小
+- 存在多个，同 grow。
 
 ### flex-basis
 

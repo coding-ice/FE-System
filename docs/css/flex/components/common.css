@@ -46,49 +46,49 @@
 
   /* align */
 
-  &.start {
+  &.align-start {
     align-items: start;
   }
 
-  &.end {
+  &.align-end {
     align-items: end;
   }
 
-  &.center {
+  &.align-center {
     align-items: center;
   }
 
-  &.normal {
+  &.align-normal {
     align-items: normal;
   }
 
-  &.stretch {
+  &.align-stretch {
     align-items: stretch;
   }
 
   /* justify */
 
-  &.start {
+  &.justify-start {
     justify-content: start;
   }
 
-  &.end {
+  &.justify-end {
     justify-content: end;
   }
 
-  &.center {
+  &.justify-center {
     justify-content: center;
   }
 
-  &.space-between {
+  &.justify-space-between {
     justify-content: space-between;
   }
 
-  &.space-around {
+  &.justify-space-around {
     justify-content: space-around;
   }
 
-  &.space-evenly {
+  &.justify-space-evenly {
     justify-content: space-evenly;
   }
 

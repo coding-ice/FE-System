@@ -15,7 +15,6 @@ export default defineConfig({
     sidebar: {
       "/css/": [
         {
-          text: "布局",
           items: [{ text: "Flex", link: "/css/flex" }],
         },
       ],
