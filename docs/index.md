@@ -7,7 +7,7 @@ hero:
   text: "打造全面的前端知识体系"
   tagline: Build a comprehensive front-end knowledge system
   image:
-    src: ./img.jpg
+    src: /img.jpg
     alt: FE
   actions:
     - theme: brand
