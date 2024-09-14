@@ -11,14 +11,14 @@ hero:
     alt: FE
   actions:
     - theme: brand
-      text: 体系树
+      text: 体系脑图
       link: /tree
 
 features:
   - title: 基础
-    details: JS是前端的根基，要学好前端首先要掌握好JS。
+    details: JS是前端的根基，万物的起源
   - title: 进阶
-    details: 需要翻越大量的优秀框架轮组的源码，理解思想 -> 输出思想
+    details: 需要翻越大量的优秀框架轮子的源码，理解思想 -> 输出思想
   - title: 精进
-    details: 向高级前端和前端专家迈进
+    details: 高级前端 -> 前端专家
 ---
