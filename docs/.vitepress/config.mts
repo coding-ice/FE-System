@@ -31,5 +31,14 @@ export default defineConfig({
     outline: {
       level: [2, 4],
     },
+
+    lastUpdated: {
+      text: "Last Updated",
+    },
+
+    editLink: {
+      pattern: "https://github.com/coding-ice/FE-System/edit/main/docs/:path",
+      text: "Edit this page on GitHub",
+    },
   },
 });
