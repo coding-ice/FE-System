@@ -1,6 +1,6 @@
 # Flex 弹性布局
 
-![mind](../images/mind.jpg)
+![mind](../images/flex-mind.jpg)
 
 <script setup>
 import Direction from './components/Direction.vue'
