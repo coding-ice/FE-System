@@ -1,5 +1,7 @@
 # Flex 弹性布局
 
+![mind](../images/mind.jpg)
+
 <script setup>
 import Direction from './components/Direction.vue'
 import Justify from './components/Justify.vue'
@@ -29,7 +31,7 @@ import Wrap from './components/Wrap.vue'
 
 ## container 属性
 
-坐落于父元素的属性，用来控制子元素如何排布，我们来介绍几个常用的
+坐落于父元素的属性，用来控制子元素如何排布，我们来介绍几个常用的，剩余的可以自行翻阅文档。
 
 ### justifyContent
 
