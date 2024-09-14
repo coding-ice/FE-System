@@ -1,0 +1,16 @@
+@media screen and (min-width: 960px) {
+  .text[data-v-a98ac527] {
+    font-size: 52px !important;
+  }
+  .image-src {
+    max-width: 360px !important;
+  }
+}
+
+.image-src {
+  border-radius: 8px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}

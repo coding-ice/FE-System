@@ -7,8 +7,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      // 默认 /abc/ -> /abc/index
-      { text: "CSS", link: "/css/" },
+      { text: "CSS", link: "/css/flex" },
       { text: "JavaScript", link: "/js/" },
     ],
 
@@ -22,6 +21,12 @@ export default defineConfig({
       "/js/": [
         { text: "ES6", items: [{ text: "Promise", link: "/js/es6/promise" }] },
       ],
+    },
+
+    footer: {
+      message: "转载请注明出处，违者必究",
+      copyright:
+        "Copyright © 2024-present <a href='https://github.com/coding-ice'>ice</a>",
     },
 
     socialLinks: [
