@@ -35,7 +35,7 @@ export default defineConfig({
     ],
 
     outline: {
-      level: [2, 4],
+      level: [2, 5],
     },
 
     lastUpdated: {
