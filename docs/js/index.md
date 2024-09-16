@@ -1,1 +1,1 @@
-图谱
+![js-mind](./images/mind.png)
