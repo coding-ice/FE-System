@@ -138,3 +138,165 @@ name3 = null;
 前面我们有说道原始类型/复杂数据的区别，这也是这样设计的原因
 
 ## 隐式类型转换
+
+有三种隐式类型转换
+
+1. toPrimitive
+2. toNumber
+3. toString
+
+思考以下代码：
+
+```js
+const info = {
+  age: 24,
+  valueOf() {
+    return this.age++;
+  },
+};
+
+if (info == 24 && info == 25) {
+  console.log("age: ", info.age); // age：25
+}
+```
+
+通过以上代码，我们可以知道 == ，比较的时候调用了 valueOf 方法，接下来我们开始探究这一行为
+
+### toPrimitive
+
+`toPrimitive(input, PreferredType?: number | string)`
+
+- input 为输入的值
+- PreferredType 为首选类型，如果没有传入参数，为 number 类型
+
+::: tip
+PreferredType 只是一个类型符号，不一定返回的值就是该类型值
+:::
+
+#### type：string
+
+当 `PreferredType：string` 有以下规则
+
+```js
+// pseudocode
+function toPrimitive(input, PreferredType) {
+  if (input === 原始值) {
+    return input;
+  } else if (input.toString() === 原始值) {
+    return input.toString();
+  } else if (input.valueOf() === 原始值) {
+    return input.valueOf();
+  }
+
+  throw new TypeError();
+}
+
+toPrimitive(unknown, string);
+```
+
+根据以上规则转为 type：string 规则
+
+1. 如果是原始值，直接返回
+2. 如果`input.toString()`是原始值，直接返回
+3. 如果`input.valueOf()`是原始值，直接返回
+4. 抛出 TypeError
+
+#### type：number
+
+<!-- prettier-ignore -->
+```js
+// pseudocode
+function toPrimitive(input, PreferredType) {
+  if (input === 原始值) {
+    return input;
+  } else if (input.toString() === 原始值) { // [!code --]
+    return input.toString(); // [!code --]
+  } else if (input.valueOf() === 原始值) { // [!code --]
+    return input.valueOf(); // [!code --]
+
+  } else if (input.valueOf() === 原始值) {// [!code ++]
+    return input.valueOf(); // [!code ++]
+  } else if (input.toString() === 原始值) { // [!code ++]
+    return input.toString(); // [!code ++]
+  }
+
+  throw new TypeError();
+}
+
+toPrimitive(unknown, string); // [!code --]
+toPrimitive(unknown, number); // [!code ++]
+```
+
+- 从代码中，我们可以得知 type 的类型不同，也只是 toString ｜ valueOf 调用的先后顺序不同而已
+
+1. number -> valueOf -> toString
+2. string -> toString -> valueOf
+
+### ToString
+
+| input     | output                                             |
+| --------- | :------------------------------------------------- |
+| string    | 无需转换                                           |
+| undefined | 'undefined'                                        |
+| null      | 'null'                                             |
+| 123       | '123'                                              |
+| false     | 'false'                                            |
+| {}        | toPrimitive({}, string)获得原始值，再进行 toString |
+
+### ToNumber
+
+| input     | output                                             |
+| --------- | :------------------------------------------------- |
+| number    | 无需转换                                           |
+| ''        | 0                                                  |
+| '123'     | 123                                                |
+| 'abc'     | NaN                                                |
+| false     | 0                                                  |
+| null      | 0                                                  |
+| undefined | NaN                                                |
+| {}        | toPrimitive({}, number)获得原始值，再进行 toNumber |
+
+### 实战案例
+
+#### + 运算符
+
+```js
+// + 运算符，可以是值运算也可以是字符串相加
+1 + null; // 1
+1 + undefined; // NaN (Not a Number)
+
+// 如果一段出现了字符串，字符串类型优先
+1 + ""; // 1
+1 + "A"; // '1A'
+1 + "1"; // 一端出现了字符串，直接拼接 -> '11'
+/**
+ * {} 空对象，不是原始数据类型，不能进行相加操作，所有要通过 toPrimitive 转为原始数据类型，type 没有指定的情况为 number
+ * toPrimitive({}, number) 先 valueOf （返回自身，不是原始类型），toString（原始数据类型 即：'[object, Object]'）
+ * 1 + '[object, Object]' -> '1[object, Object]' 一端出现了 str 为字符串拼接
+ */
+1 + {}; // 1[object, Object]
+
+1 + []; // '1' 推导过程：[].toString() -> "" -> 1 + "" -> '1'
+```
+
+#### == 运算符
+
+- null 和 undefined 相等，且不能转换为其他类型进行比较
+- 如果一端出现 Number 类型，其他类型都转为 Number 类型，如果是复杂数据类型，先进行 toPrimitive(input, number) 也就是先拿到 valueOf 的原始值，在进行 ToNumber 操作
+- 如果是复杂数据类型，则进行引用比较
+- NaN 不等于自身
+
+```js
+null == undefined; // true
+NaN == NaN; // false
+NaN != NaN; // true
+
+null == 0; // false
+undefined == 0; // false
+"" == 0; // true
+1 == "1"; // true
+false == 0; // true
+1 == "true"; // false  "true" -> NaN (toNumber)
+
+({}) == {}; // false
+```
