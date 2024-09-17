@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scroll</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        border: 5px solid skyblue;
+        background-color: pink;
+        overflow: auto;
+
+        /* white-space: nowrap;
+        overflow-y: scroll; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      This is a box.This is a box.This is a box.This is a box.This is a box.This
+      is a box.This is a box. This is a box.This is a box.This is a box.This is
+      a box.This is a box.This is a box.This is a box.
+    </div>
+    <div class="output">scrollTop: <span class="val">0</span></div>
+    <script>
+      const boxEl = document.querySelector(".box");
+      const valEl = document.querySelector(".val");
+      console.log(boxEl.scrollHeight); // 整个可滚动区域的高度/不包含border
+
+      boxEl.addEventListener("scroll", (e) => {
+        valEl.textContent = e.target.scrollTop;
+      });
+    </script>
+  </body>
+</html>
