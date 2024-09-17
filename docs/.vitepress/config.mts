@@ -20,6 +20,7 @@ export default defineConfig({
 
       "/js/": [
         { text: "数据类型", link: "/js/data-types" },
+        { text: "Dom和Event", link: "/js/dom-event" },
         { text: "ES6", items: [{ text: "Promise", link: "/js/es6/promise" }] },
       ],
     },
