@@ -55,7 +55,7 @@ typeof null; // 'object'
 1. 类型标签
 2. 存储值
 
-object 的类型标签是 0 ，null 在大多数语言中代表空指针 （0x00），所以它 `typeof null  === 'object'`
+object 和 null 的类型标签都是 0 ，null 在大多数语言中代表空指针 （0x00），所以它 `typeof null  === 'object'`
 
 ### instanceof
 
