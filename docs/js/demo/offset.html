@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>offset</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+        border: 5px solid skyblue;
+        background-color: pink;
+        /* overflow: auto; */
+
+        /* white-space: nowrap;
+        overflow-y: scroll; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      This is a box.This is a box.This is a box.This is a box.This is a box.This
+      is a box.This is a box.
+    </div>
+    <script>
+      const el = document.querySelector(".box");
+      console.log(el.offsetWidth); // 130 -> width + padding + border
+      console.log(el.offsetHeight); // 130 -> height + padding + border
+      console.log(el.offsetTop); // 8 -> margin-top
+      console.log(el.offsetLeft); // 8 -> margin-left
+    </script>
+  </body>
+</html>

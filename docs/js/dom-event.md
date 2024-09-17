@@ -19,3 +19,42 @@ const info = document.querySelector(".info")
 console.log(info.dataset) // { name: 'ice', age: 24 }
 <script/>
 ```
+
+## 元素的大小与滚动
+
+### client
+
+::: details
+<<< ./demo/client.html
+:::
+
+1. ClientWidth  
+   contentWidth + paddingWidth （不包含滚动条）
+2. ClientHeight  
+   contentHeight + paddingHeight （不包含滚动条）
+3. ClientTop  
+   borderTop 的宽度 （上边框）
+4. ClientLeft  
+   borderLeft 的宽度 （左边框）
+
+### offset
+
+::: details
+<<< ./demo/offset.html
+:::
+
+1. offsetWidth  
+   元素的完整宽度 -> borderWidth + ClientWidth（含滚动条宽度）
+2. offsetHeight  
+   元素的完整高度 -> borderHeight + ClientHeight （含滚动条高度）
+3. offsetTop  
+   距离父元素的 X
+4. offsetLeft  
+   距离父元素的 Y
+
+### scroll
+
+1. scrollHeight  
+   整个可滚动区域的高度
+2. scrollTop
+   滚动被卷进去的高度
