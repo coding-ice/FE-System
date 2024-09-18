@@ -133,5 +133,5 @@ console.log(info.dataset) // { name: 'ice', age: 24 }
 
 ### 文档加载
 
-- DOMContentLoaded：当 HTML 文档完全解析（Dom 树构建完成），且所有延迟脚本（<script defer src="…"> 和 <script type="module">）下载和执行完毕后，会触发 DOMContentLoaded 事件。它不会等待图片、子框架和异步脚本等其他内容完成加载。
+- DOMContentLoaded：当 HTML 文档完全解析（Dom 树构建完成），且所有延迟脚本（`<script defer src="…" />` 和 `<script type="module" />`）下载和执行完毕后，会触发 DOMContentLoaded 事件。它不会等待图片、子框架和异步脚本等其他内容完成加载。
 - load：用于检测完全加载的页面。
