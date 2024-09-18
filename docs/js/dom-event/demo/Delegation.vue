@@ -23,7 +23,7 @@ const handleClick = (e) => {
 
 
 </script>
-<style module>
+<style module scoped>
 .grey {
   background: #282a2f;
 }
