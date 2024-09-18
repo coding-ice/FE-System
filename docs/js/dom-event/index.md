@@ -123,10 +123,15 @@ console.log(info.dataset) // { name: 'ice', age: 24 }
 ### 事件委托
 
 可以把一组元素上的事件，移动到父元素上，利用事件冒泡的机制。当子元素触发事件，冒泡到父元素中，从而达到更高的性能。  
-利用 data-* 的方法，给子元素绑定“唯一值”，用来区分点击了哪个元素
+利用 data-\* 的方法，给子元素绑定“唯一值”，用来区分点击了哪个元素
 
 ::: details
 <<< ./demo/Delegation.vue
 :::
 
 <Delegation />
+
+### 文档加载
+
+- DOMContentLoaded：当 HTML 文档完全解析（Dom 树构建完成），且所有延迟脚本（<script defer src="…"> 和 <script type="module">）下载和执行完毕后，会触发 DOMContentLoaded 事件。它不会等待图片、子框架和异步脚本等其他内容完成加载。
+- load：用于检测完全加载的页面。
