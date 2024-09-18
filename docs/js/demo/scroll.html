@@ -28,7 +28,7 @@
     <script>
       const boxEl = document.querySelector(".box");
       const valEl = document.querySelector(".val");
-      console.log(boxEl.scrollHeight); // 整个可滚动区域的高度/不包含border
+      console.log(boxEl.scrollHeight); // 整个可滚动区域的高度
 
       boxEl.addEventListener("scroll", (e) => {
         valEl.textContent = e.target.scrollTop;
