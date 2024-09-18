@@ -28,13 +28,13 @@ console.log(info.dataset) // { name: 'ice', age: 24 }
 <<< ./demo/client.html
 :::
 
-1. ClientWidth  
+- ClientWidth  
    contentWidth + paddingWidth （不包含滚动条）
-2. ClientHeight  
+- ClientHeight  
    contentHeight + paddingHeight （不包含滚动条）
-3. ClientTop  
+- ClientTop  
    borderTop 的宽度 （上边框）
-4. ClientLeft  
+- ClientLeft  
    borderLeft 的宽度 （左边框）
 
 ### offset
@@ -43,18 +43,31 @@ console.log(info.dataset) // { name: 'ice', age: 24 }
 <<< ./demo/offset.html
 :::
 
-1. offsetWidth  
-   元素的完整宽度 -> borderWidth + ClientWidth（含滚动条宽度）
-2. offsetHeight  
-   元素的完整高度 -> borderHeight + ClientHeight （含滚动条高度）
-3. offsetTop  
-   距离父元素的 X
-4. offsetLeft  
-   距离父元素的 Y
+- offsetWidth  
+  元素的完整宽度 -> borderWidth + ClientWidth（含滚动条宽度）
+- offsetHeight  
+  元素的完整高度 -> borderHeight + ClientHeight （含滚动条高度）
+- offsetTop  
+  距离父元素的 X
+- offsetLeft  
+  距离父元素的 Y
 
 ### scroll
 
-1. scrollHeight  
-   整个可滚动区域的高度
-2. scrollTop
-   滚动被卷进去的高度
+- scrollHeight 整个可滚动区域的高度
+
+- scrollTop 滚动被卷进去的高度
+
+## window 上的大小与滚动
+
+### width/height
+
+- innerWidth / innerHeight: window 窗口的宽度/高度 (包括滚动条)
+
+- outerWidth / outerHeight: window 窗口整个的宽度/高度 （包含调试器等）
+
+### 滚动位置
+
+- scrollX X 轴的滚动位置
+- scrollY Y 轴的滚动位置
+- scrollTo (X, Y) 页面滚动 至 绝对坐标
