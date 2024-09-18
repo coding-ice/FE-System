@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eventStream</title>
+    <style>
+      .container {
+        width: 150px;
+        height: 150px;
+        background: pink;
+        .box {
+          width: 50px;
+          height: 50px;
+          background: skyblue;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">hi ice</div>
+    </div>
+    <script>
+      const bodyEl = document.body;
+      const containerEl = document.querySelector(".container");
+      const boxEl = document.querySelector(".box");
+
+      // 事件冒泡
+      bodyEl.addEventListener("click", (e) => {
+        console.log("bubble: bobubodyEl click");
+      });
+
+      containerEl.addEventListener("click", (e) => {
+        console.log("bubble: containerEl click");
+      });
+
+      boxEl.addEventListener("click", (e) => {
+        console.log("bubble: boxEl click");
+      });
+
+      // 事件捕获
+      bodyEl.addEventListener(
+        "click",
+        (e) => {
+          console.log("capture: bodyEl click");
+        },
+        true
+      );
+
+      containerEl.addEventListener(
+        "click",
+        (e) => {
+          console.log("capture: containerEl click");
+        },
+        true
+      );
+
+      boxEl.addEventListener(
+        "click",
+        (e) => {
+          console.log("capture: boxEl click");
+        },
+        true
+      );
+    </script>
+  </body>
+</html>
