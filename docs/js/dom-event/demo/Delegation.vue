@@ -25,7 +25,7 @@ const handleClick = (e) => {
 </script>
 <style module scoped>
 .grey {
-  background: #282a2f;
+  background: var(--vp-custom-block-details-bg);
 }
 
 li {

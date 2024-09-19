@@ -98,7 +98,7 @@ console.log(info.dataset) // { name: 'ice', age: 24 }
 
 `.box -> .container -> body`
 
-#### capture
+#### Capture
 
 事件捕获，从外至内，如果同时存在冒泡/捕获，会先捕获在冒泡
 
