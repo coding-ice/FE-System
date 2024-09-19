@@ -14,14 +14,14 @@ export default defineConfig({
     sidebar: {
       "/css/": [
         {
-          items: [{ text: "Flex", link: "/css/flex" }],
+          items: [{ text: "Flex", link: "/css/flex/" }],
         },
       ],
 
       "/js/": [
         { text: "数据类型", link: "/js/data-types" },
-        { text: "Dom & Event", link: "/js/dom-event" },
-        { text: "Bom", link: "/js/bom" },
+        { text: "Dom & Event", link: "/js/dom-event/" },
+        { text: "Bom", link: "/js/bom/" },
         { text: "ES6", items: [{ text: "Promise", link: "/js/es6/promise" }] },
       ],
     },
