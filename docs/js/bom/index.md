@@ -13,6 +13,7 @@ Bom 全称是 Browser Object Model （浏览器对象模型）
 ### History
 
 - 通过 history.pushState 不刷新改变 path
+- 通过 location.pathname 获取 pathname
 
 ### Hash
 
