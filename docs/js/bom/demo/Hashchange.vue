@@ -1,11 +1,13 @@
 <template>
-  <button @click="handleClick">change hash</button>
+  <button @click="handleClick">change hash: ({{ count }})</button>
 </template>
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
+
+const count = ref(0)
 
 const handleClick = () => {
-  location.hash = 'ice'
+  location.hash = ++count.value
 }
 
 onMounted(() => {
