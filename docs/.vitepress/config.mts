@@ -23,9 +23,10 @@ export default defineConfig({
           text: "基础",
           collapsed: false,
           items: [
-            { text: "数据类型", link: "/js/data-types" },
-            { text: "Dom & Event", link: "/js/dom-event/" },
-            { text: "Bom", link: "/js/bom/" },
+            { text: "数据类型", link: "/js/basic/data-types" },
+            { text: "Dom & Event", link: "/js/basic/dom-event/" },
+            { text: "Bom", link: "/js/basic/bom/" },
+            { text: "This", link: "/js/basic/this" },
           ],
         },
         {
