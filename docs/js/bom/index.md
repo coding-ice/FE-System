@@ -21,4 +21,4 @@ Bom 全称是 Browser Object Model （浏览器对象模型）
 **两者的区别**
 1. 页面会话关闭后，localStorage 保留，sessionStorage 会被删除
 2. 页面内进行跳转（同域），数据都会保留
-3. 外部打开（新选项卡），localStorage会保留，sessionStorage 会被删除
+3. 外部打开（新选项卡），localStorage会保留，sessionStorage 不会保留
