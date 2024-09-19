@@ -21,7 +21,7 @@ Bom 全称是 Browser Object Model （浏览器对象模型）
 <Hashchange />
 
 ::: details
-<<< ./demo/hashchange.vue
+<<< ./demo/Hashchange.vue
 :::
 
 ## 客户端存储
