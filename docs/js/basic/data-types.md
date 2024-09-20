@@ -25,7 +25,7 @@ const obj = { name: "ice", age: 24 };
 const name = "ice";
 ```
 
-!["memory"](./images/memory.png)
+!["memory"](../images/memory.png)
 
 ## 区分数据类型
 
