@@ -89,3 +89,20 @@ js 引擎内部有一个**执行上下文栈**，是代码的调用栈
 
 **代码开始执行**
 ![run](../../images/func_run.png)
+
+## 作用域链
+
+如果存在函数嵌套，每个函数都存在自己的作用域，而一层一层的作用域关系就跟链条一样，所以称之为作用域链
+
+```js
+function bar(age) {
+  const name = "ice";
+  function foo() {
+    console.log(name, age);
+  }
+  return foo;
+}
+
+const foo = bar(24);
+foo();
+```
