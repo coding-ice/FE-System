@@ -27,6 +27,7 @@ export default defineConfig({
             { text: "Dom & Event", link: "/js/basic/dom-event/" },
             { text: "Bom", link: "/js/basic/bom/" },
             { text: "This", link: "/js/basic/this" },
+            { text: "运行原理 & 作用域链", link: "/js/basic/run-scope-chain/" },
           ],
         },
         {
