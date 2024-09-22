@@ -163,21 +163,21 @@ bar(info.getName);
   - 调用`bind`返回的参数也可以进行传参
 
 ```js
-var fullName = 'panpan'
+var fullName = "panpan";
 
 const info = {
-  fullName: 'ice',
-  getName: function(age, height) {
-    console.log(this.fullName, age, height) //ice 20 1.88
-  }
-}
+  fullName: "ice",
+  getName: function (age, height) {
+    console.log(this.fullName, age, height); //ice 20 1.88
+  },
+};
 
 function bar(fn) {
-  let newFn = fn.bind(info, 20)
-  newFn(1.88)
+  let newFn = fn.bind(info, 20);
+  newFn(1.88);
 }
 
-bar(info.getName)
+bar(info.getName);
 ```
 
 ### 2.4 new 绑定
