@@ -1,4 +1,4 @@
-# 运行原理 & 作用域链
+# 运行原理 & 作用域
 
 ## 浏览器内核
 
@@ -90,19 +90,72 @@ js 引擎内部有一个**执行上下文栈**，是代码的调用栈
 **代码开始执行**
 ![run](../../images/func_run.png)
 
-## 作用域链
+## 作用域
 
-如果存在函数嵌套，每个函数都存在自己的作用域，而一层一层的作用域关系就跟链条一样，所以称之为作用域链
+### 全局作用域
 
 ```js
-function bar(age) {
-  const name = "ice";
-  function foo() {
-    console.log(name, age);
-  }
-  return foo;
+var name = "ice";
+
+console.log(name); // ice
+```
+
+通过 var 定义的变量，会赋值在 window 上
+
+### 函数作用域
+
+```js
+var name = "ice";
+
+function bar() {
+  var name = "panpan";
+  console.log(name); // panpan
+}
+```
+
+函数拥有自己的作用域，即 name = 'panpan'
+
+### 块级作用域
+
+早期 var 是没有没有独立的作用域的，从而导致不可预料之外的结果
+
+```js
+for (var i = 0; i < 5; i++) {
+  setTimeout(() => console.log(i), i * 1000); // 5次 5
 }
 
-const foo = bar(24);
-foo();
+// 利用函数作用域 + 闭包 变相解决
+for (var i = 0; i < 5; i++) {
+  (function (i) {
+    setTimeout(() => console.log(i), i * 1000); // 0 1 2 3 4
+  })(i);
+}
 ```
+
+let/const 有块级作用域，代码会变得简洁明了
+
+```js
+for (let i = 0; i < 5; i++) {
+  setTimeout(() => console.log(i), i * 1000); // 0 1 2 3 4
+}
+```
+
+### 作用域链
+
+```js
+const name = "panpan";
+function bar() {
+  const name = "ice";
+
+  function foo() {
+    const name = "iceweb";
+    console.log(name); // iceweb
+  }
+
+  foo();
+}
+
+bar();
+```
+
+作用域链（Scope Chain）则是 JavaScript 中用于确定变量访问顺序的机制。作用域链是由函数创建时的词法环境（Lexical Environment）决定的，它决定了变量的查找顺序，当在当前作用域找不到变量时，会沿着作用域链向上查找直到全局作用域。
