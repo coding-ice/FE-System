@@ -28,6 +28,7 @@ export default defineConfig({
             { text: "Bom", link: "/js/basic/bom/" },
             { text: "This", link: "/js/basic/this" },
             { text: "运行原理 & 作用域", link: "/js/basic/run-scope-chain/" },
+            { text: "内存 & 闭包", link: "/js/basic/memory-closure/" },
           ],
         },
         {
@@ -61,3 +62,4 @@ export default defineConfig({
     },
   },
 });
+
