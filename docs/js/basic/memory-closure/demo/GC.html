@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="create">创建</button>
+    <button class="gc">回收</button>
+    <script>
+      const createEl = document.querySelector(".create");
+      const gcEl = document.querySelector(".gc");
+
+      let array = [];
+
+      function filledArray() {
+        const list = new Array(1000 * 1000).fill(0);
+        return function () {
+          console.log(list);
+        };
+      }
+
+      createEl.addEventListener("click", function () {
+        for (let i = 0; i < 1000; i++) {
+          array.push(filledArray());
+        }
+      });
+
+      gcEl.addEventListener("click", function () {
+        array = [];
+      });
+    </script>
+  </body>
+</html>

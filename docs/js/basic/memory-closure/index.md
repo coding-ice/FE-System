@@ -37,3 +37,62 @@
   - “新 旧”，长期存活的对象变得“老旧”，从而减少检查的频率;
 - 闲时收集
   - 只在 CPU 空闲时常试运行
+
+### 如何排查内存泄漏
+
+::: details
+<<< ./demo/GC.html
+:::
+
+1. 页面打开点击 memory 进行第一次快照
+2. 点击创建按钮，进行第二次快照 （发现内存爆增）
+3. 点击回收按钮，进行第三次快照，发现内存被回收
+
+## 闭包 (Closure)
+
+Closure 最早是出现在 Scheme 当中，而 JS 中许多灵感都来自于此。
+什么是闭包：简而言之，就是函数引用了上层作用域的自由变量，原本应该销毁的作用域因其而（闭包）保留，不会被销毁
+
+- 作用域 = AO 对象 + parent scopes
+
+### 示例
+
+**思考以下代码**
+
+```js
+function add(count) {
+  return function (n) {
+    return n + count;
+  };
+}
+
+var add5 = add(5); // step 1
+add5(10); // step 2 => 15
+```
+
+1. 执行函数 `add` 后，返回了一个新的函数，该函数引用了上层作用域的 count ->（5）
+2. 执行返回的函数得到 15，注意：执行到这里本该释放的作用域没有被释放，也就是 `add5` 对其有引用
+3. 如果后续不需要执行的话，就应该释放其引用，否则会产生内存泄漏
+
+- ```
+  add5 = null // [!code ++]
+  ```
+
+**如果引用了上层作用域变量，只有该变量会被保留，还是整条作用域被保留？**  
+尝试 debug 该代码
+
+```js
+function add(count) {
+  var name = "ice";
+  return function (n) {
+    debugger;
+    return n + count;
+  };
+}
+
+var add5 = add(5);
+add5(10);
+```
+
+![alt text](../../images/closure-debug.png)  
+所以只有该引用的变量会保留
