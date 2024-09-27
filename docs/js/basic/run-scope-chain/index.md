@@ -53,7 +53,7 @@ JS 引擎会初始化全局对象，在执行代码之前，会在堆 (heap) 内
 - setTimeout
   ...
 
-![Go](../../images/go.png)
+<img src="../../images/go.png" style="width: 400px; height: auto;" />
 
 ### ECS
 
