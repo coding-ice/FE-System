@@ -29,6 +29,7 @@ export default defineConfig({
             { text: "This", link: "/js/basic/this" },
             { text: "运行原理 & 作用域", link: "/js/basic/run-scope-chain/" },
             { text: "内存 & 闭包", link: "/js/basic/memory-closure/" },
+            { text: "浏览器渲染原理", link: "/js/basic/populating/" },
           ],
         },
         {
@@ -62,4 +63,3 @@ export default defineConfig({
     },
   },
 });
-
