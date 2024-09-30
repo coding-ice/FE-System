@@ -34,7 +34,7 @@ export default defineConfig({
           ],
         },
         {
-          text: "ES6",
+          text: "ES6 +",
           items: [{ text: "Promise", link: "/js/es6/promise" }],
         },
       ],
