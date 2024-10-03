@@ -35,7 +35,10 @@ export default defineConfig({
         },
         {
           text: "ES6 +",
-          items: [{ text: "Promise", link: "/js/es6/promise" }],
+          items: [
+            { text: "Promise", link: "/js/es6/promise" },
+            { text: "Proxy & Reflect", link: "/js/es6/proxy-reflect" },
+          ],
         },
       ],
     },
