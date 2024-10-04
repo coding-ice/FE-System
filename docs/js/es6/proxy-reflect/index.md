@@ -41,3 +41,9 @@ Reflect.has(obj, "name"); // true
 了解了 Reflect 方法，我们来改造下原有的 Proxy
 
 <<< ./demo/reflect&proxy.js
+
+另外有一个参数 receiver 参数，我们一直都没有用到，那它是用来干嘛的？
+
+- 当源对象使用了 getter/setter 时，可以通过 receiver 改变其内部的 this 指向
+
+<<< ./demo/reflect&proxy&receiver.js
