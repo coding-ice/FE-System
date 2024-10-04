@@ -20,5 +20,24 @@
 
 <<< ./demo/proxy.js
 
-与 `Object.defineProperty` 不同的是，它有更强大的监听能力，有 13 个捕获器并且也能监听对象的新增，删除等。  
+与 `Object.defineProperty` 不同的是，它有更强大的监听能力，有 13 个捕获器并且也能监听对象的新增，删除等。另外要特殊说明的是其中的 `target === obj`，而 `receiver === proxyed`
 Vue3 源码中实现响应式则是通过 Proxy 的方式
+
+## Reflect 反射
+
+Reflect 提供了许多操作对象的方法，与 Object 中操作的对象方法类似，而 Object 作为构造函数把这些静态方法放在它身上并不合适，所以有了 Reflect。  
+大部分反射的 API 在 Object 中都有对应的方法
+
+```js
+const obj = {
+  name: "ice",
+};
+Reflect.get(obj, "name"); // ice
+Reflect.set(obj, "name", "panda"); // true
+Reflect.has(obj, "name"); // true
+// ...
+```
+
+了解了 Reflect 方法，我们来改造下原有的 Proxy
+
+<<< ./demo/reflect&proxy.js

@@ -1,20 +1,19 @@
-var obj = {
+const obj = {
   name: "ice",
   age: 24,
 };
 
 const proxyed = new Proxy(obj, {
   get(target, key, receiver) {
-    console.log("get 触发");
-    return target[key];
+    return Reflect.get(target, key);
   },
   set(target, key, value, receiver) {
     console.log("set"); // set
-    target[key] = value;
+    Reflect.set(target, key, value);
   },
   deleteProperty(target, key) {
-    console.log("deleteProperty"); // deleteProperty
-    delete target[key];
+    console.log("del"); // del
+    Reflect.deleteProperty(target, key);
   },
 });
 
