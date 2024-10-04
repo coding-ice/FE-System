@@ -14,7 +14,7 @@ const proxyed = new Proxy(obj, {
   },
   deleteProperty(target, key) {
     console.log("deleteProperty"); // deleteProperty
-    delete target[key];
+    return delete target[key];
   },
 });
 
