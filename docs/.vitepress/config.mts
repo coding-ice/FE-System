@@ -9,6 +9,7 @@ export default defineConfig({
     nav: [
       { text: "CSS", link: "/css/flex" },
       { text: "JavaScript", link: "/js/" },
+      { text: "React", link: "/js/" },
     ],
 
     sidebar: {
@@ -35,13 +36,19 @@ export default defineConfig({
         },
         {
           text: "ES6 +",
+          collapsed: false,
           items: [
             { text: "Proxy & Reflect", link: "/js/es6/proxy-reflect/" },
-            { text: "Iterator & Generator", link: "/js/es6/iterator-generator/" },
+            {
+              text: "Iterator & Generator",
+              link: "/js/es6/iterator-generator/",
+            },
             { text: "Promise", link: "/js/es6/promise" },
           ],
         },
       ],
+
+      "/react/": [],
     },
 
     footer: {
