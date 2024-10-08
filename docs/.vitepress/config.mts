@@ -9,7 +9,7 @@ export default defineConfig({
     nav: [
       { text: "CSS", link: "/css/flex" },
       { text: "JavaScript", link: "/js/" },
-      { text: "React", link: "/js/" },
+      { text: "React", link: "/react/" },
     ],
 
     sidebar: {
