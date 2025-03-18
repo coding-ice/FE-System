@@ -1,6 +1,6 @@
 # Flex 弹性布局
 
-![mind](../images/flex-mind.jpg)
+![mind](./images/flex-mind.jpg)
 
 <script setup>
 import Direction from './components/Direction.vue'
@@ -13,7 +13,7 @@ import Wrap from './components/Wrap.vue'
 
 当使用了`display: flex`，该元素也称为 flex container，其大小默认包裹子元素的内容。子元素称为 flex item 不再严格区分行内/块元素，一般用于一维布局布局中。
 
-![flex-desc](../images/flex-desc.png)
+![flex-desc](./images/flex-desc.png)
 
 ## axis 轴
 
@@ -22,7 +22,7 @@ import Wrap from './components/Wrap.vue'
 1. 主轴 main axis
 2. 交叉轴 cross axis
 
-![flex-axis](../images/axis.png)
+![flex-axis](./images/axis.png)
 
 `flex-direction: row | row-reverse | column | column-reverse`  
 通过该属性设置主轴的方向，默认为 row，案例如下所示

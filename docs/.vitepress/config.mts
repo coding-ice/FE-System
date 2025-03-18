@@ -10,12 +10,15 @@ export default defineConfig({
       { text: "CSS", link: "/css/flex" },
       { text: "JavaScript", link: "/js/" },
       { text: "React", link: "/react/" },
+      { text: "手写题", link: "/write/js/apply-call-bind" },
     ],
 
     sidebar: {
       "/css/": [
         {
-          items: [{ text: "Flex", link: "/css/flex/" }],
+          items: [
+            { text: "Flex", link: "/css/flex/" },
+          ],
         },
       ],
 
@@ -44,6 +47,16 @@ export default defineConfig({
               link: "/js/es6/iterator-generator/",
             },
             { text: "Promise", link: "/js/es6/promise" },
+          ],
+        },
+      ],
+
+      "/write/": [
+        {
+          text: "js",
+          collapsed: false,
+          items: [
+            { text: "apply & call & bind", link: "/write/js/apply-call-bind" },
           ],
         },
       ],
