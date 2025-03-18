@@ -33,4 +33,15 @@ x.apply(this, ["a", "b", "c"]);
 
 ### 用法
 
+<<< ./code/bind/bind_exam.js
+
+- x.bind(this, args) 第一个参数为 this，后面可选填参数， **返回一个新的函数 -> 携带了 this / 参数**
+- 调用新的函数，也可以再次传递参数
+
 ### 实现
+
+<<< ./code/bind/bind.js
+
+- 与 call/apply 不同的是
+  - 它是返回了一个已经 bind this 的 fn 函数
+  - 函数的传递可以分批或者一次性传入
