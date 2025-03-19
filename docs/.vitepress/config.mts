@@ -10,15 +10,13 @@ export default defineConfig({
       { text: "CSS", link: "/css/flex" },
       { text: "JavaScript", link: "/js/" },
       { text: "React", link: "/react/" },
-      { text: "手写题", link: "/write/js/apply-call-bind" },
+      { text: "手写题", link: "/write/basic/apply-call-bind" },
     ],
 
     sidebar: {
       "/css/": [
         {
-          items: [
-            { text: "Flex", link: "/css/flex/" },
-          ],
+          items: [{ text: "Flex", link: "/css/flex/" }],
         },
       ],
 
@@ -53,10 +51,17 @@ export default defineConfig({
 
       "/write/": [
         {
-          text: "js",
+          text: "基础实现类",
           collapsed: false,
           items: [
-            { text: "apply & call & bind", link: "/write/js/apply-call-bind" },
+            {
+              text: "apply & call & bind",
+              link: "/write/basic/apply-call-bind/",
+            },
+            {
+              text: "防抖",
+              link: "/write/basic/debounce/",
+            },
           ],
         },
       ],
