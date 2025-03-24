@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>test</button>
+    <script src="./throttle.js"></script>
+    <script>
+      const btn = document.querySelector("button");
+      const throttled = throttle(
+        function () {
+          console.log("click");
+        },
+        3000,
+        {
+          leading: true,
+          trailing: true,
+        }
+      );
+
+      btn.addEventListener("click", throttled);
+    </script>
+  </body>
+</html>
