@@ -66,6 +66,10 @@ export default defineConfig({
               text: "截流",
               link: "/write/basic/throttle/",
             },
+            {
+              text: "深浅拷贝",
+              link: "/write/basic/deep-shallow-clone/",
+            },
           ],
         },
       ],
