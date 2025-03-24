@@ -62,6 +62,10 @@ export default defineConfig({
               text: "防抖",
               link: "/write/basic/debounce/",
             },
+            {
+              text: "截流",
+              link: "/write/basic/throttle/",
+            },
           ],
         },
       ],
