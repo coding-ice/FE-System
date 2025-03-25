@@ -70,6 +70,10 @@ export default defineConfig({
               text: "深浅拷贝",
               link: "/write/basic/deep-shallow-clone/",
             },
+            {
+              text: "instanceof",
+              link: "/write/basic/instanceof/",
+            },
           ],
         },
       ],
