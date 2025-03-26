@@ -74,6 +74,10 @@ export default defineConfig({
               link: "/write/basic/deep-shallow-clone/",
             },
             {
+              text: "new",
+              link: "/write/basic/new/",
+            },
+            {
               text: "instanceof",
               link: "/write/basic/instanceof/",
             },
