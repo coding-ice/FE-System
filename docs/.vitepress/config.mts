@@ -11,6 +11,7 @@ export default defineConfig({
       { text: "JavaScript", link: "/js/" },
       { text: "React", link: "/react/" },
       { text: "手写题", link: "/write/basic/apply-call-bind" },
+      { text: "八股文", link: "/interview/html-css/" },
     ],
 
     sidebar: {
@@ -49,6 +50,8 @@ export default defineConfig({
         },
       ],
 
+      "/react/": [],
+
       "/write/": [
         {
           text: "基础实现类",
@@ -78,7 +81,12 @@ export default defineConfig({
         },
       ],
 
-      "/react/": [],
+      "/interview/": [
+        {
+          text: "HTML-CSS",
+          link: "/interview/html-css/",
+        },
+      ],
     },
 
     footer: {
