@@ -40,3 +40,40 @@ defer 和 async 出现就是为了解决这一问题
 ```
 
 利用 defer 的属性，把 script 写在 head 中，尽可能的早点下载，不阻塞 dom tree 的构建，从而提升性能
+
+## 物理像素 逻辑像素
+
+**物理像素**  
+它是真实存在的，比如每个手机的分辨率不同（硬件决定的），那么物理像素就不同。
+
+**逻辑像素**  
+它是虚拟的概念（抽象的），也称之为 css 像素。 比如我们日常开发 100px 的宽度，那么这个 100px 就是逻辑像素，即使是不同分辨率下，展示的大小是一致的。
+
+**设备像素比**
+它是物理像素和逻辑像素的比值，也就是 一个 css 像素等于多少个物理像素，如果比值越大，物理像素越多，那么显示的就更清晰更细腻。
+
+```js
+window.devicePixelRatio;
+```
+
+**移动端 2/3 倍图适配**
+
+```css
+.bg {
+  background-image: url(./bg-1x.png);
+}
+
+@media screen and (min-resolution: 2dppx) {
+  .bg {
+    background-image: url(./bg-2x.png);
+  }
+}
+
+@media screen and (min-resolution: 3dppx) {
+  .bg {
+    background-image: url(./bg-3x.png);
+  }
+}
+```
+
+背景图片可以利用媒体查询，可以适配不同的 DPR 比值
