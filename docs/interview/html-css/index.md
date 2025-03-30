@@ -78,7 +78,7 @@ window.devicePixelRatio;
 
 背景图片可以利用媒体查询，可以适配不同的 DPR 比值
 
-## 1px 问题
+## 移动端 1px 问题
 
 **为什么会出现 1px 问题？**
 
@@ -87,3 +87,18 @@ window.devicePixelRatio;
 ::: details 解决办法
 <<< ./code/1px.html
 :::
+
+## 什么是 BFC？
+
+BFC 称之为块级格式化上下文，它决定了块级元素的布局规则，块级元素垂直排列 从上至下，块级元素两者的间距由 margin 决定，如果在同一个 BFC 中，那么 margin 会进行重叠
+
+**如何创建 BFC ？**
+
+- 根元素
+- float 不为 none
+- position 为 absolute 或 fixed
+- display 为 inline-block 或 table-cell 或 table-caption
+- overflow 不为 visible
+
+**解决 BFC Margin 重叠问题**
+
