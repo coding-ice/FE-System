@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1px 问题</title>
+    <style>
+      .reduce {
+        position: relative;
+        width: fit-content;
+        padding: 6px;
+        color: red;
+      }
+      .reduce::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        border: 1px solid red;
+        transform: scale(0.5);
+        transform-origin: left top;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reduce">满 200 减 100</div>
+  </body>
+</html>

@@ -83,3 +83,7 @@ window.devicePixelRatio;
 **为什么会出现 1px 问题？**
 
 在实际开发中，一般 ui 给的设计图都是 750px 的，但是在实际开发中都是最小适配的 375px 的，在 750 中的 1px，其实在 375 中需要为 0.5px，但是很多浏览器 css 不支持 0.5px。
+
+::: details 解决办法
+<<< ./code/1px.html
+:::
