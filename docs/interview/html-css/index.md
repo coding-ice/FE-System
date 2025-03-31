@@ -102,3 +102,6 @@ BFC 称之为块级格式化上下文，它决定了块级元素的布局规则�
 
 **解决 BFC Margin 重叠问题**
 
+::: details 解决办法
+<<< ./code/margin_collapse.html
+:::
