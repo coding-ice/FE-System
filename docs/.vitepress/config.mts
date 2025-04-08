@@ -90,6 +90,10 @@ export default defineConfig({
           text: "HTML-CSS",
           link: "/interview/html-css/",
         },
+        {
+          text: "JS",
+          link: "/interview/js/",
+        },
       ],
     },
 
