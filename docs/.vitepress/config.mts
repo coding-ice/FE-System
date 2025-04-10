@@ -34,6 +34,7 @@ export default defineConfig({
             { text: "内存 & 闭包", link: "/js/basic/memory-closure/" },
             { text: "浏览器渲染原理", link: "/js/basic/populating/" },
             { text: "类与继承", link: "/js/basic/class-extends/" },
+            { text: "客户端存储", link: "/js/basic/client-storage/" },
           ],
         },
         {
