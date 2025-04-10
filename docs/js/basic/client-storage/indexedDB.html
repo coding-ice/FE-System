@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="add">add</button>
+    <button class="update">upadte</button>
+    <button class="delete">delete</button>
+    <script>
+      const updateBtn = document.querySelector(".update");
+      const addBtn = document.querySelector(".add");
+      const deleteBtn = document.querySelector(".delete");
+      const request = indexedDB.open("test", 1);
+      let db = null;
+
+      request.onerror = (e) => {
+        console.log("创建失败");
+      };
+
+      request.onsuccess = (e) => {
+        db = e.target.result;
+
+        // 1. 添加数据
+        // addHistory(db);
+
+        // 2. 查询数据
+        // getHistory(db, 2);
+      };
+
+      request.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        // 创建表
+        const dbTable = db.createObjectStore("message_history", {
+          keyPath: "message_id",
+        });
+        // 创建索引 ？-> 需要多次查询的时候创建索引即可
+        // dbTable.createIndex("content", "content", { unique: false });
+        dbTable.createIndex("user_id", "user_id", { unique: true });
+      };
+
+      updateBtn.addEventListener("click", () => {
+        updateHistory(db, 2);
+      });
+
+      addBtn.addEventListener("click", () => {
+        addHistory(db);
+      });
+
+      deleteBtn.addEventListener("click", () => {
+        delHistory(db, 7101);
+      });
+
+      function addHistory(db) {
+        // 1. 开启事物
+        const transaction = db.transaction("message_history", "readwrite");
+        // 2. 获取表
+        const store = transaction.objectStore("message_history");
+
+        // 3. 添加数据
+        const request = store.add({
+          message_id: Math.floor(Math.random() * 1000000),
+          user_id: crypto.randomUUID(),
+          content: Math.floor(Math.random() * 1000),
+          created_at: new Date(),
+        });
+
+        request.onerror = (e) => {
+          console.log("添加失败");
+        };
+
+        request.onsuccess = (e) => {
+          console.log("添加成功");
+        };
+      }
+
+      // 使用 key 查询
+      function getHistory(db, id) {
+        const transaction = db.transaction("message_history");
+        const store = transaction.objectStore("message_history");
+
+        // 使用 key 查询
+        const req = store.get(id);
+
+        req.onsuccess = (e) => {
+          console.log(e.target.result);
+        };
+        req.onerror = (e) => {
+          console.log("查询失败");
+        };
+      }
+
+      // 使用索引查询
+      function getHistoryByIndex(db, indexName, value) {
+        const transaction = db.transaction("message_history");
+        const store = transaction.objectStore("message_history");
+
+        const req = store.index(indexName).get(value);
+
+        req.onsuccess = (e) => {
+          console.log(e.target.result);
+        };
+      }
+
+      function updateHistory(db, id) {
+        const transaction = db.transaction("message_history", "readwrite");
+        const store = transaction.objectStore("message_history");
+
+        const req = store.put({
+          message_id: id,
+          content: `update ${new Date().valueOf()}`,
+          created_at: new Date(),
+        });
+
+        req.onsuccess = (e) => {
+          console.log("更新成功 ->", e.target.result);
+        };
+      }
+
+      function delHistory(db, id) {
+        const transaction = db.transaction("message_history", "readwrite");
+        const store = transaction.objectStore("message_history");
+
+        const req = store.delete(id);
+
+        req.onsuccess = (e) => {
+          console.log("删除成功 ->", e.target.result);
+        };
+      }
+
+      function getAllMessageIds(db) {
+        const transaction = db.transaction("message_history");
+        const store = transaction.objectStore("message_history");
+
+        const req = store.getAllKeys();
+
+        req.onsuccess = (e) => {
+          console.log(e.target.result);
+        };
+      }
+
+      function getAllData(db) {
+        const transaction = db.transaction("message_history");
+        const store = transaction.objectStore("message_history");
+
+        const req = store.getAll();
+
+        req.onsuccess = (e) => {
+          console.log(e.target.result);
+        };
+      }
+
+      setTimeout(() => {
+        // getHistoryByIndex(
+        //   db,
+        //   "user_id",
+        //   "2319f29c-731c-457a-bf50-ee957ace1970"
+        // );
+        // getAllMessageIds(db);
+
+        getAllData(db);
+      }, 3000);
+    </script>
+  </body>
+</html>
