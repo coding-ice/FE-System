@@ -55,3 +55,38 @@ Node 中的 Event Loop 是基于 libuv 实现的，简单来说相比浏览器�
 **执行顺序**
 
 主线程 > 微任务（nextTick > promise.then） > 宏任务
+
+## 浏览器内核 （渲染引擎）
+
+目前主流的浏览器内核有：
+
+- Gecko 内核：Firefox
+- Webkit 内核：Safari
+- Blink 内核：Chrome
+
+**Webkit 内核**
+
+Webkit 内核分为两部分：
+
+- WebCore：负责 HTML 的解析、布局、渲染等
+- JavaScriptCore：负责 JavaScript 的解析、执行
+
+**V8 引擎**
+
+V8 引擎是 Google 开发的 JavaScript 引擎，它将 JavaScript 代码编译为机器码，并执行。
+
+**V8 引擎的执行过程**
+
+1. 解析 JavaScript 代码，生成抽象语法树（AST）
+
+- parse 词法分析、语法分析 最后生成 AST
+
+2. 将 AST 转换为字节码
+
+- ignition(点火) 将 AST 转换为字节码
+
+3. 执行字节码
+
+- turboFan （收集类型信息） 将字节码转换为机器码，提高执行效率
+
+![v8](../image/v8.jpg)
