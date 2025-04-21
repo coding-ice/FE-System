@@ -9,7 +9,7 @@ export default defineConfig({
     nav: [
       { text: "CSS", link: "/css/flex" },
       { text: "JavaScript", link: "/js/" },
-      { text: "React", link: "/react/" },
+      { text: "React", link: "/react/reduce-rerender" },
       { text: "手写题", link: "/write/basic/apply-call-bind" },
       { text: "八股文", link: "/interview/html-css/" },
     ],
@@ -51,7 +51,12 @@ export default defineConfig({
         },
       ],
 
-      "/react/": [],
+      "/react/": [
+        {
+          text: "不必要的渲染",
+          link: "/react/reduce-rerender/",
+        },
+      ],
 
       "/write/": [
         {
