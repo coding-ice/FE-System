@@ -176,6 +176,6 @@ normalize.css 是一个用于解决 css 兼容性问题的库，它会对不同�
 **利用合成层 开启 GPU 加速**  
 每个图层都是单独渲染的，不可滥用是牺牲内存为代价
 
-- 拖标元素 -> position: fixed
+- 脱标元素 -> position: fixed
 - 利用 transform 的 translateZ(0) 开启 GPU 加速
 - 利用 will-change 告诉浏览器该元素会发生变化，从而提前合成

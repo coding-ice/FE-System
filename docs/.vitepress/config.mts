@@ -1,9 +1,20 @@
 import { defineConfig } from "vitepress";
+import container from "markdown-it-container";
+import { renderSandbox } from "vitepress-plugin-sandpack";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "FE-System",
   description: "This is FE-System Site",
+  markdown: {
+    config(md) {
+      md.use(container, "sandbox", {
+        render(tokens, idx) {
+          return renderSandbox(tokens, idx, "sandbox");
+        },
+      });
+    },
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
