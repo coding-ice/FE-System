@@ -100,6 +100,16 @@ export default defineConfig({
             },
           ],
         },
+        {
+          text: "异步编程",
+          collapsed: false,
+          items: [
+            {
+              text: "PromiseA+",
+              link: "/write/async/promise-a/",
+            },
+          ],
+        },
       ],
 
       "/interview/": [
