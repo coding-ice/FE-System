@@ -6,7 +6,7 @@
 class IcePromise {
   // 1. promise 的状态
   static PENDING = "pending";
-  static FULFILLED = "fulfilled";
+  static FULFILLED = "fulfilled"; 
   static REJECTED = "rejected";
 
   constructor(executor) {

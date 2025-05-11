@@ -1,12 +1,13 @@
 /**
- * 完整实现 promise A+
+ * 1. 实现 promise then 方法，支持同步异步以及多次调用
  */
-class IcePromise {
-  static PENDING = "pending";
-  static FULFILLED = "fulfilled";
-  static REJECTED = "rejected";
 
-  constructor(executor) {
+class IcePromise {
+  static PENDING = "PENDING";
+  static RESOLVE = "RESOLVE";
+  static REJECT = "REJECT";
+
+  constructor(exextor) {
     this.status = IcePromise.PENDING;
     this.value = null;
     this.reason = null;
@@ -15,10 +16,10 @@ class IcePromise {
 
     const resolve = (value) => {
       if (this.status === IcePromise.PENDING) {
-        this.status = IcePromise.FULFILLED;
+        this.status = IcePromise.RESOLVE;
         this.value = value;
 
-        this.onFulfilledCallbacks.forEach((cb) => cb(value));
+        this.onFulfilledCallbacks.forEach((fn) => fn(this.value));
       }
     };
 
@@ -26,134 +27,51 @@ class IcePromise {
       if (this.status === IcePromise.PENDING) {
         this.status = IcePromise.REJECTED;
         this.reason = reason;
-
-        this.onRejectedCallbacks.forEach((cb) => cb(reason));
+        this.onRejectedCallbacks.forEach((fn) => fn(this.reason));
       }
     };
 
     try {
-      executor(resolve, reject);
-    } catch (error) {
-      reject(error);
+      exextor(resolve, reject);
+    } catch (e) {
+      reject(e);
     }
   }
 
   then(onFulfilled, onRejected) {
-    const promise2 = new IcePromise((resolve, reject) => {
-      if (this.status === IcePromise.FULFILLED) {
-        setTimeout(() => {
-          try {
-            if (typeof onFulfilled !== "function") {
-              resolve(this.value);
-              return;
-            }
-            const x = onFulfilled(this.value);
-            resolvePromise(promise2, x, resolve, reject);
-          } catch (error) {
-            reject(error);
-          }
-        });
-      } else if (this.status === IcePromise.REJECTED) {
-        setTimeout(() => {
-          try {
-            if (typeof onRejected !== "function") {
-              reject(this.reason);
-              return;
-            }
-            const x = onRejected(this.reason);
-            resolvePromise(promise2, x, resolve, reject);
-          } catch (error) {
-            reject(error);
-          }
-        });
-      } else {
-        this.onFulfilledCallbacks.push(() => {
-          setTimeout(() => {
-            try {
-              if (typeof onFulfilled !== "function") {
-                resolve(this.value);
-                return;
-              }
-              const x = onFulfilled(this.value);
-              resolvePromise(promise2, x, resolve, reject);
-            } catch (error) {
-              reject(error);
-            }
-          });
-        });
-        this.onRejectedCallbacks.push(() => {
-          setTimeout(() => {
-            try {
-              if (typeof onRejected !== "function") {
-                reject(this.reason);
-                return;
-              }
-              const x = onRejected(this.reason);
-              resolvePromise(promise2, x, resolve, reject);
-            } catch (error) {
-              reject(error);
-            }
-          });
-        });
-      }
-    });
-
-    return promise2;
-  }
-}
-
-function resolvePromise(promise2, x, resolve, reject) {
-  if (promise2 === x) {
-    throw new TypeError("Chaining cycle detected for promise");
-  }
-
-  if (x instanceof IcePromise) {
-    x.then((res) => {
-      resolvePromise(promise2, res, resolve, reject);
-    }, reject);
-  } else if (x !== null && (typeof x === "object" || typeof x === "function")) {
-    try {
-      const then = x.then;
-      if (typeof then === "function") {
-        let called = false;
-        try {
-          then.call(
-            x,
-            (y) => {
-              if (called) return;
-              called = true;
-              resolvePromise(promise2, y, resolve, reject);
-            },
-            (r) => {
-              if (called) return;
-              called = true;
-              reject(r);
-            }
-          );
-        } catch (e) {
-          if (called) return;
-          called = true;
-          reject(e);
-        }
-      } else {
-        resolve(x);
-      }
-    } catch (e) {
-      reject(e);
+    if (this.status === IcePromise.PENDING) {
+      this.onFulfilledCallbacks.push(onFulfilled);
+      this.onRejectedCallbacks.push(onRejected);
     }
-  } else {
-    resolve(x);
+    if (this.status === IcePromise.RESOLVE) {
+      onFulfilled(this.value);
+    }
+    if (this.status === IcePromise.REJECTED) {
+      onRejected(this.reason);
+    }
   }
 }
 
-IcePromise.deferred = function () {
-  let res = {};
-  res.promise = new IcePromise((resolve, reject) => {
-    res.resolve = resolve;
-    res.reject = reject;
-  });
+const p = new IcePromise((resolve, reject) => {
+  // reject("error");
+  setTimeout(() => {
+    resolve(100);
+  }, 3000);
+});
 
-  return res;
-};
-
-module.exports = IcePromise;
+p.then(
+  (v1) => {
+    console.log(v1);
+  },
+  (e) => {
+    console.log(e);
+  }
+);
+p.then(
+  (v2) => {
+    console.log(v2);
+  },
+  (e) => {
+    console.log(e);
+  }
+);
