@@ -121,6 +121,10 @@ export default defineConfig({
           text: "JS",
           link: "/interview/js/",
         },
+        {
+          text: "前端安全",
+          link: "/interview/security/",
+        },
       ],
     },
 
