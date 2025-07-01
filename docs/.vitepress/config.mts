@@ -21,6 +21,7 @@ export default defineConfig({
       { text: "CSS", link: "/css/flex" },
       { text: "JavaScript", link: "/js/" },
       { text: "React", link: "/react/reduce-rerender" },
+      { text: "算法", link: "/algorithm/index" },
       { text: "手写题", link: "/write/basic/apply-call-bind" },
       { text: "八股文", link: "/interview/html-css/" },
     ],
