@@ -21,6 +21,7 @@ export default defineConfig({
       { text: "CSS", link: "/css/flex" },
       { text: "JavaScript", link: "/js/" },
       { text: "React", link: "/react/reduce-rerender" },
+      { text: "Next", link: "/next/basic/app-router" },
       { text: "算法", link: "/algorithm/index" },
       { text: "手写题", link: "/write/basic/apply-call-bind" },
       { text: "八股文", link: "/interview/html-css/" },
@@ -67,6 +68,14 @@ export default defineConfig({
         {
           text: "不必要的渲染",
           link: "/react/reduce-rerender/",
+        },
+      ],
+
+      "/next/": [
+        {
+          text: "基础",
+          collapsed: false,
+          items: [{ text: "App Router", link: "/next/basic/app-router/" }],
         },
       ],
 
