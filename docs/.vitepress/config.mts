@@ -75,7 +75,13 @@ export default defineConfig({
         {
           text: "基础",
           collapsed: false,
-          items: [{ text: "App Router", link: "/next/basic/app-router/" }],
+          items: [
+            { text: "App Router", link: "/next/basic/app-router/" },
+            {
+              text: "动态路由 & 并行路由 & 拦截路由",
+              link: "/next/basic/routes-dynamic-group-parallel-intercept/",
+            },
+          ],
         },
       ],
 
