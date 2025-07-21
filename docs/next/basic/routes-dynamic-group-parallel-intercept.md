@@ -19,3 +19,9 @@
 /blog/product/123/page.tsx -> params: {slug: ['product', '123']}
 
 ```
+
+## 路由组
+
+可以用来创建多个布局, 比如 B (端)，和 C (端)，放在同一个目录下（常用），然后通过路由组来区分
+
+![preview.jpg](./images/route-group.png)
