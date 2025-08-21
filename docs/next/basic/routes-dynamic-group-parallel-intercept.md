@@ -29,3 +29,27 @@
 ![preview.jpg](./images/route-group.png)
 
 ## 平行路由
+
+类似于 slot 功能，children 是一个隐式 slot（@children）
+
+![parallel.jpg](./images/parallel.png)
+
+### default.js 默认路由
+
+当平行路由中存在子路由
+
+![default.jpg](./images/default.png)
+
+当通过 Link 组件访问 `/page-views`（软导航），会匹配到子路由，其他的会保留上一次的路由状态  
+当刷新页面（硬导航），匹配子路由 -> default.js -> 404
+
+- 为什么没匹配到？ 因为访问 `/page-views` 不仅仅是 `@analysis`,还有 `@team` `children`(他们是没有`page-views`页面的)
+
+### 应用场景
+
+- 独立路由处理
+  - loading 实现，分包的效果
+  - 可以单独处理 error 状态等
+- 子路由的使用
+
+## 拦截路由
