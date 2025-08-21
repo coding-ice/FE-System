@@ -81,6 +81,10 @@ export default defineConfig({
               text: "动态路由 & 平行路由 & 拦截路由",
               link: "/next/basic/routes-dynamic-group-parallel-intercept/",
             },
+            {
+              text: "渲染策略",
+              link: "/next/basic/rendering-strategy/",
+            },
           ],
         },
       ],
