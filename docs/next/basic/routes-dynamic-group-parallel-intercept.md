@@ -53,3 +53,9 @@
 - 子路由的使用
 
 ## 拦截路由
+
+![intercept.jpg](./images/intercepted.png)
+
+### 应用场景
+
+- 列表，点击 item ，软导航（modal 显示），硬导航（刷新 页面显示）
