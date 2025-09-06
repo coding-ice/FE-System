@@ -82,6 +82,10 @@ export default defineConfig({
               link: "/next/basic/routes-dynamic-group-parallel-intercept/",
             },
             {
+              text: "CSR / SSR / SSG / ISR",
+              link: "/next/basic/csr_ssr_ssg_isr/",
+            },
+            {
               text: "渲染策略",
               link: "/next/basic/rendering-strategy/",
             },
