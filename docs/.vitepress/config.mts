@@ -89,6 +89,10 @@ export default defineConfig({
               text: "渲染策略",
               link: "/next/basic/rendering-strategy/",
             },
+            {
+              text: "缓存",
+              link: "/next/basic/caching/",
+            },
           ],
         },
       ],
