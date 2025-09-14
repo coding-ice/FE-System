@@ -22,6 +22,7 @@ export default defineConfig({
       { text: "JavaScript", link: "/js/" },
       { text: "React", link: "/react/reduce-rerender" },
       { text: "Next", link: "/next/basic/app-router" },
+      { text: "Web3", link: "/web3/eth/EIP6963" },
       { text: "算法", link: "/algorithm/index" },
       { text: "手写题", link: "/write/basic/apply-call-bind" },
       { text: "八股文", link: "/interview/html-css/" },
