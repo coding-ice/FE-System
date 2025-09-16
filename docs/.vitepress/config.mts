@@ -94,6 +94,10 @@ export default defineConfig({
               text: "缓存",
               link: "/next/basic/caching/",
             },
+            {
+              text: "Server Action",
+              link: "/next/basic/server-action/",
+            },
           ],
         },
       ],
