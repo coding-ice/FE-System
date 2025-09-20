@@ -167,3 +167,73 @@ export default Page;
   />
 </form>
 ```
+
+## 实战案例
+
+```tsx
+// actions.ts
+"use server";
+
+import { revalidatePath } from "next/cache";
+const todos = ["吃饭", "睡觉", "coding"];
+
+export async function getTodos() {
+  return todos;
+}
+
+export async function createTodo(_, formData: FormData) {
+  const todo = formData.get("todo") as string;
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  todos.push(todo);
+  revalidatePath("/form-actions-3");
+  return {
+    message: `add ${todo} success`,
+  };
+}
+```
+
+```tsx
+// form/form.tsx
+"use client";
+
+import { useActionState } from "react";
+import { createTodo } from "./actions";
+
+const FormActions = () => {
+  const [state, formAction, isPending] = useActionState(createTodo, {
+    message: "",
+  });
+
+  return (
+    <form action={formAction}>
+      <input type="text" name="todo" />
+      <button type="submit">{isPending ? "Adding..." : "Add"}</button>
+      <p>{state.message}</p>
+    </form>
+  );
+};
+
+export default FormActions3;
+```
+
+```tsx
+import { getTodos } from "./actions";
+import FormActions from "./form";
+
+const FormActions3Page = async () => {
+  const todos = await getTodos();
+
+  return (
+    <div>
+      <FormActions />
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo}>{todo}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default FormActions3Page;
+```
