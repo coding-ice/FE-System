@@ -143,6 +143,10 @@ export default defineConfig({
             },
           ],
         },
+        {
+          text: "场景实战",
+          link: "/write/scene",
+        },
       ],
 
       "/interview/": [
