@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FP vs FCP</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      background: black;
+    }
+    
+    body {
+      font-family: Arial;
+      padding: 20px;
+      color: white;
+    }
+    
+    .box {
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      background: white;
+    }
+    
+    .fp-box {
+      border-left: 4px solid #FF9800;
+    }
+    
+    .fcp-box {
+      border-left: 4px solid #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <!-- FP: 只有背景色，没有内容 -->
+  <div class="box fp-box">
+    <h2 style="color: #FF9800;">FP (First Paint) - 只有背景</h2>
+    <p>这个区域会在 FP 时出现（可能只是背景色）</p>
+  </div>
+
+  <!-- FCP: 有实际内容 -->
+  <div class="box fcp-box">
+    <h2 style="color: #4CAF50;">FCP (First Contentful Paint) - 有内容</h2>
+    <p>这个区域有文本和内容，会在 FCP 时出现</p>
+    <img src="http://img.daimg.com/uploads/allimg/250629/1-25062Z00406.jpg" style="width: 200px; margin-top: 10px;" />
+  </div>
+
+
+  <script>
+    // 打开 DevTools Performance 标签刷新页面查看
+    if ('PerformanceObserver' in window) {
+      const observer = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          console.log(entry.name, entry.startTime);
+        }
+      });
+      observer.observe({ entryTypes: ['paint'] });
+    }
+  </script>
+</body>
+</html>

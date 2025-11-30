@@ -162,6 +162,10 @@ export default defineConfig({
           text: "前端安全",
           link: "/interview/security/",
         },
+        {
+          text: "网页关键指标",
+          link: "/interview/web-vitals/",
+        },
       ],
     },
 
