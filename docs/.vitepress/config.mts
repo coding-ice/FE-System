@@ -166,6 +166,10 @@ export default defineConfig({
           text: "网页关键指标",
           link: "/interview/web-vitals/",
         },
+        {
+          text: "强/协商缓存",
+          link: "/interview/cache/",
+        },
       ],
     },
 
