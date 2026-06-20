@@ -175,13 +175,8 @@ export default defineConfig({
 
     footer: {
       message: "转载请注明出处，违者必究",
-      copyright:
-        "Copyright © 2024-present <a href='https://github.com/coding-ice'>ice</a>",
+      copyright: "Copyright © 2024-present ice",
     },
-
-    socialLinks: [
-      { icon: "github", link: "https://github.com/coding-ice/FE-System" },
-    ],
 
     outline: {
       level: [2, 5],
@@ -189,11 +184,6 @@ export default defineConfig({
 
     lastUpdated: {
       text: "Last Updated",
-    },
-
-    editLink: {
-      pattern: "https://github.com/coding-ice/FE-System/edit/main/docs/:path",
-      text: "Edit this page on GitHub",
     },
   },
 });
