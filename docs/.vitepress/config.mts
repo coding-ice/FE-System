@@ -20,8 +20,8 @@ export default defineConfig({
     nav: [
       { text: "CSS", link: "/css/flex" },
       { text: "JavaScript", link: "/js/" },
-      { text: "React", link: "/react/reduce-rerender" },
       { text: "Next", link: "/next/basic/app-router" },
+      { text: "Docker", link: "/docker/" },
       { text: "Web3", link: "/web3/eth/EIP6963" },
       { text: "算法", link: "/algorithm/index" },
       { text: "手写题", link: "/write/basic/apply-call-bind" },
@@ -65,13 +65,6 @@ export default defineConfig({
         },
       ],
 
-      "/react/": [
-        {
-          text: "不必要的渲染",
-          link: "/react/reduce-rerender/",
-        },
-      ],
-
       "/next/": [
         {
           text: "基础",
@@ -96,8 +89,18 @@ export default defineConfig({
             },
             {
               text: "Server Action",
-              link: "/next/basic/server-action/",
+              link: "/next/basic/server-actions/",
             },
+          ],
+        },
+      ],
+
+      "/docker/": [
+        {
+          text: "Docker",
+          collapsed: false,
+          items: [
+            { text: "常用命令", link: "/docker/basic/commands" },
           ],
         },
       ],
